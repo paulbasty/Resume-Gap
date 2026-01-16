@@ -208,6 +208,11 @@ async function main() {
     // Remove robots meta that may interfere with local viewing
     $('meta[name="robots"]').remove();
 
+    // Ensure UTF-8 charset is set
+    if ($('meta[charset]').length === 0) {
+      $('head').prepend('<meta charset="utf-8" />');
+    }
+
     // Ensure base so relative URLs resolve when opened from /timex.html
     if ($('base').length === 0) {
       $('head').prepend(`<base href="${TARGET}">`);
@@ -230,7 +235,15 @@ async function main() {
 
     // Also write a JS module that exports the HTML string for embedding into native WebView
     await ensureDir(APP_ASSETS_DIR);
-    const moduleContent = `export default ${JSON.stringify(outHtml)};\n`;
+    
+    // Escape the HTML properly for JavaScript
+    const escapedHtml = outHtml
+      .replace(/\\/g, '\\\\')  // Escape backslashes first
+      .replace(/`/g, '\\`')    // Escape backticks
+      .replace(/\$/g, '\\$');  // Escape dollar signs
+    
+    // Use template literal for better handling of large HTML strings
+    const moduleContent = `export default \`${escapedHtml}\`;\n`;
     await fs.writeFile(APP_HTML_MODULE, moduleContent, 'utf8');
     console.log('Wrote', APP_HTML_MODULE);
 
