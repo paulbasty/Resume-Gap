@@ -1,8 +1,0 @@
-{
-  "expo": {
-    "name": "Timex Static Preview",
-    "slug": "timex-static-preview",
-    "platforms": ["ios", "android", "web"],
-    "version": "1.0.0"
-  }
-}

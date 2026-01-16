@@ -1,48 +1,27 @@
-# Timex Static Snapshot (Expo + web)
+Refurbished Watches — Static Site (Vite + React + Tailwind)
 
-This repository is a minimal demo to:
-- Scaffold an Expo React Native app that displays a static snapshot of https://www.timex.com when run on web.
-- Provide a Node script that fetches the Timex homepage and writes it to `public/timex.html`.
+Quick start
 
-Important legal note
-- This is an educational demo. Scraping third-party sites can violate terms of service or copyright — obtain permission before scraping and using content.
-
-Prerequisites
-- Node 18+
-- npm
-- (Optional) `expo-cli` installed globally, or use `npx expo`.
-
-Install
+1. Install dependencies:
 
 ```bash
 npm install
 ```
 
-Scrape the homepage (writes `public/timex.html`)
-
-```powershell
-npm run scrape
-```
-
-Run the app in web mode (this will serve `public/timex.html` at `/timex.html`)
+2. Run development server:
 
 ```bash
-npm run web
-# or
-npx expo start --web
+npm run dev
 ```
 
-Native embedding
+3. Open the printed local URL (http://localhost:5173 by default).
 
-- The scraper also generates `AppAssets/timex_html.js` which exports the inlined HTML string. When running the Expo app on native (iOS/Android), the app will render that HTML inside a `WebView` if the module contains content.
-- After running `npm run scrape`, rebuild/restart the native app so the new module is picked up by the bundler.
+Notes
 
-Notes on how this works
-- The scraper is `scripts/scrape.js` and currently fetches only the homepage. It writes the raw HTML to `public/timex.html` and prepends a `<base>` tag so relative assets resolve to the original site.
-- The Expo `App.js` renders an `<iframe>` when running on web that points at `/timex.html`. On native platforms it shows a button to open the live site.
+- The site is a lightweight React app using Vite and Tailwind.
+- Watch images use placeholder images (Picsum/Unsplash). Replace with real photos in `src/pages` or a `public` folder.
+- The Google Maps embed points to Bucharest.
 
-Extending the scraper
-- To capture more pages, fetch additional URLs and rewrite relative asset links to absolute ones, or download assets to `public/` and update references.
-
-Feedback / next steps
-- Tell me which additional pages or assets to capture and whether you want the scraper to mirror assets locally.
+Next steps you might want:
+- Add real images in `/public` and update routes
+- Configure analytics or forms for `Contact`
