@@ -13,8 +13,8 @@ export default function WatchDetail(){
   const { id } = useParams()
   const images = [
     `/images/watch${id}.jpg`,
-    `/images/watch${id}.jpg`,
-    `/images/watch${id}.jpg`
+    `/images/watch${id}-2.jpg`,
+    `/images/watch${id}-3.jpg`
   ]
 
   return (

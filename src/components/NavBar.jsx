@@ -10,8 +10,11 @@ const Link = ({to, children}) => (
 export default function NavBar(){
   return (
     <header className="bg-white/80 backdrop-blur sticky top-0 z-50 shadow-sm">
-      <div className="max-w-6xl mx-auto flex items-center justify-between p-4">
-        <div className="text-xl font-semibold">Refurbished Watches</div>
+      <div className="max-w-6xl mx-auto flex items-center justify-between py-6 px-4">
+        <div className="flex items-center gap-4">
+          <img src="/images/logo.svg" alt="logo" className="h-10 w-auto" />
+          <div className="text-xl font-semibold">Refurbished Watches</div>
+        </div>
         <nav className="flex items-center space-x-2">
           <Link to="/">Home</Link>
           <Link to="/watches">Watches</Link>
