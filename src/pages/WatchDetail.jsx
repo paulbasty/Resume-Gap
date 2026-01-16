@@ -25,14 +25,20 @@ export default function WatchDetail(){
         </div>
         <div>
           <h2 className="text-2xl font-semibold">Refurbished Watch #{id}</h2>
-          <p className="mt-4 text-gray-700">A carefully restored timepiece with attention to original finish and functionality. Each watch receives a full service, calibration, and a condition report.</p>
+          <p className="mt-4 text-gray-700 text-lg">A carefully restored timepiece with attention to original finish and functionality. Each watch receives a full service, calibration, and a condition report.</p>
+
+          <div className="mt-4 text-sm text-gray-700">
+            <p><strong>Model:</strong> {`Model ${id} — Reference 100${id}`}</p>
+            <p className="mt-2"><strong>Condition:</strong> Excellent — service report available.</p>
+            <p className="mt-2">This example retains its original case with light surface marks consistent with age. The dial has been cleaned; luminous material left untouched to preserve authenticity.</p>
+          </div>
 
           <div className="mt-6">
             <h4 className="font-medium">Highlights</h4>
             <ul className="mt-2 list-disc list-inside text-sm text-gray-600">
               <li>Full service by certified watchmaker</li>
               <li>Original case and dial preserved where possible</li>
-              <li>Movement regulated for accuracy</li>
+              <li>Movement regulated for accuracy; timing certificate included</li>
             </ul>
           </div>
 
@@ -45,12 +51,15 @@ export default function WatchDetail(){
             </ul>
           </div>
 
-          <div className="mt-6 flex items-center justify-between">
+          <div className="mt-6 grid grid-cols-1 gap-3">
             <div className="text-2xl font-semibold">$1,250</div>
-            <button className="px-4 py-2 bg-amber-600 text-white rounded hover:bg-amber-700">Reserve</button>
+            <form className="mt-2 grid grid-cols-1 gap-2 max-w-md">
+              <input className="border px-3 py-2 rounded" placeholder="Your name" />
+              <input className="border px-3 py-2 rounded" placeholder="Email" />
+              <button type="button" className="px-4 py-2 bg-amber-600 text-white rounded hover:bg-amber-700">Reserve</button>
+            </form>
+            <div className="text-sm text-gray-500">This placeholder form collects your interest. We'll contact you to confirm specifics and arrange payment/shipping.</div>
           </div>
-
-          <div className="mt-4 text-sm text-gray-500">To reserve, click Reserve and we'll contact you to confirm details. This is a placeholder action — integration with a booking flow can be added on request.</div>
         </div>
       </div>
     </section>
