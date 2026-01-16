@@ -5,7 +5,9 @@
   "scripts": {
     "start": "expo start",
     "web": "expo start --web",
-    "scrape": "node scripts/scrape.js"
+    "scrape": "node scripts/scrape.js",
+    "sync-html": "node scripts/sync_html.js",
+    "build:html": "npm run scrape && npm run sync-html"
   },
   "dependencies": {
     "axios": "^1.4.0",
