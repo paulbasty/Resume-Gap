@@ -12,9 +12,9 @@ const sampleSpecs = [
 export default function WatchDetail(){
   const { id } = useParams()
   const images = [
-    `https://picsum.photos/seed/watch${id}a/1200/800`,
-    `https://picsum.photos/seed/watch${id}b/1200/800`,
-    `https://picsum.photos/seed/watch${id}c/1200/800`
+    `/images/watch${id}.jpg`,
+    `/images/watch${id}.jpg`,
+    `/images/watch${id}.jpg`
   ]
 
   return (
@@ -25,7 +25,16 @@ export default function WatchDetail(){
         </div>
         <div>
           <h2 className="text-2xl font-semibold">Refurbished Watch #{id}</h2>
-          <p className="mt-4 text-gray-700">A beautiful example of a restored classic—maintaining original charm while fitted with reliable parts where needed.</p>
+          <p className="mt-4 text-gray-700">A carefully restored timepiece with attention to original finish and functionality. Each watch receives a full service, calibration, and a condition report.</p>
+
+          <div className="mt-6">
+            <h4 className="font-medium">Highlights</h4>
+            <ul className="mt-2 list-disc list-inside text-sm text-gray-600">
+              <li>Full service by certified watchmaker</li>
+              <li>Original case and dial preserved where possible</li>
+              <li>Movement regulated for accuracy</li>
+            </ul>
+          </div>
 
           <div className="mt-6">
             <h4 className="font-medium">Specs</h4>
@@ -40,6 +49,8 @@ export default function WatchDetail(){
             <div className="text-2xl font-semibold">$1,250</div>
             <button className="px-4 py-2 bg-amber-600 text-white rounded hover:bg-amber-700">Reserve</button>
           </div>
+
+          <div className="mt-4 text-sm text-gray-500">To reserve, click Reserve and we'll contact you to confirm details. This is a placeholder action — integration with a booking flow can be added on request.</div>
         </div>
       </div>
     </section>

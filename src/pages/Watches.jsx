@@ -2,10 +2,10 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 const watches = [
-  {id:1, name:'Vintage Diver', img:'https://picsum.photos/seed/watch1/800/600'},
-  {id:2, name:'Dress Classic', img:'https://picsum.photos/seed/watch2/800/600'},
-  {id:3, name:'Pilot Chrono', img:'https://picsum.photos/seed/watch3/800/600'},
-  {id:4, name:'Field Explorer', img:'https://picsum.photos/seed/watch4/800/600'}
+  {id:1, name:'Vintage Diver', img:'/images/watch1.jpg', price:1250, desc:'Robust diver from the 1970s — cleaned, regulated, and pressure-tested.'},
+  {id:2, name:'Dress Classic', img:'/images/watch2.jpg', price:980, desc:'Elegant slim profile with a restored dial and new leather strap.'},
+  {id:3, name:'Pilot Chrono', img:'/images/watch3.jpg', price:1420, desc:'Functional chronograph with freshly serviced movement and crisp register hands.'},
+  {id:4, name:'Field Explorer', img:'/images/watch4.jpg', price:760, desc:'Rugged field watch — reliable, legible, and ready for daily wear.'}
 ]
 
 export default function Watches(){
@@ -18,9 +18,9 @@ export default function Watches(){
             <img src={w.img} alt={w.name} className="w-full h-44 object-cover" />
             <div className="p-4">
               <h3 className="font-medium">{w.name}</h3>
-              <p className="text-sm text-gray-600 mt-2">A carefully inspected and restored timepiece.</p>
+              <p className="text-sm text-gray-600 mt-2">{w.desc}</p>
               <div className="mt-4 flex justify-between items-center">
-                <div className="text-lg font-semibold">$1,250</div>
+                <div className="text-lg font-semibold">${w.price.toLocaleString()}</div>
                 <Link to={`/watches/${w.id}`} className="px-3 py-1 bg-gray-900 text-white rounded">View</Link>
               </div>
             </div>
