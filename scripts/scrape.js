@@ -217,6 +217,11 @@ async function main() {
     await inlineStyles($, TARGET);
     await inlineScripts($, TARGET);
 
+    // Download and rewrite assets
+    const assetsDir = path.join(path.dirname(OUT), 'timex_assets');
+    const mapping = {};
+    await rewriteAndDownloadAssets($, TARGET, assetsDir, mapping);
+
     const outHtml = $.html();
 
     await ensureDir(path.dirname(OUT));
